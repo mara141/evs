@@ -11,6 +11,7 @@
 | post,get,put,delete
  */
 Route::get('index', 'FrontController@index');
+
 Route::get('/', 'FrontController@index');
 Route::resource('image-uploads', 'ImagesController@saveImages');
 Route::get('contacto', 'FrontController@contacto');
