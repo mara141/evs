@@ -1,0 +1,13 @@
+if (Input::hasFile('file_from_form')) {
+    Input::file('file_from_form')->move('uploads/my', 'url.xls'); // Moves to /public/uploads/my/url.xls
+}
+
+Excel::load('uploads/my/url.xls' ,function($archive)
+{
+    $result = $archive->get();
+
+    foreach($result as $key => $value)
+    {
+        echo $value-> //Echoing some values here
+    }
+})->get();
