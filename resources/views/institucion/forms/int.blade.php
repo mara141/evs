@@ -14,5 +14,7 @@
 
 <div class="form-group">
 	{!!Form::label('Logo','Logo:')!!}
-	{!!Form::file('path',['required'=>'required'])!!}
+	{{--{!!Form::file('path', (isset($isEditView) && $isEditView == 1) ? []: ['required'=>'required'])!!}--}}
+
+	<input type="file" {{  (isset($isEditView) && $isEditView == 1) ? '' : 'required' }} name="path">
 </div>

@@ -2,13 +2,11 @@
 
 namespace evs\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Session;
-use Redirect;
-use evs\Inst;
-use evs\Http\Requests;
-use evs\Http\Requests\InstCreateRequest;
 use evs\Http\Controllers\Controller;
+use evs\Inst;
+use Illuminate\Http\Request;
+use Redirect;
+use Session;
 
 class InstController extends Controller
 {
@@ -20,8 +18,8 @@ class InstController extends Controller
     public function index()
     {
         $insts = Inst::all();
-        return view('institucion.index',compact('insts'));
-      
+        return view('institucion.index', compact('insts'));
+
     }
 
     /**
@@ -31,7 +29,7 @@ class InstController extends Controller
      */
     public function create()
     {
-        return view ('institucion.create');
+        return view('institucion.create');
     }
 
     /**
@@ -42,9 +40,10 @@ class InstController extends Controller
      */
     public function store(Request $request)
     {
-       Inst::create($request->all());
-     
-     return redirect('/institucion')->with('message','store');
+        // print_r($request->all());die();
+        Inst::create($request->all());
+
+        return redirect('/institucion')->with('message', 'store');
     }
 
     /**
@@ -67,7 +66,7 @@ class InstController extends Controller
     public function edit($id)
     {
         $inst = Inst::find($id);
-        return view('institucion.edit',['inst'=>$inst]);
+        return view('institucion.edit', ['inst' => $inst, 'isEditView' => 1]);
     }
 
     /**
@@ -80,9 +79,9 @@ class InstController extends Controller
     public function update(Request $request, $id)
     {
         $inst = Inst::find($id);
-        $inst ->fill($request->all());
-        $inst ->save();
-        Session::flash('message','Institución Actualizada Correctamente');
+        $inst->update($request->all());
+        $inst->save();
+        Session::flash('message', 'Institución Actualizada Correctamente');
         return Redirect::to('/institucion');
     }
 
@@ -95,8 +94,8 @@ class InstController extends Controller
     public function destroy($id)
     {
         $inst = Inst::find($id);
-        $inst-> delete();
-        Session:: flash('message','Usuario eliminado Correctamente');
+        $inst->delete();
+        Session::flash('message', 'Usuario eliminado Correctamente');
         return Redirect::to('/institucion');
     }
 }
