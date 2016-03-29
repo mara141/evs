@@ -14,8 +14,8 @@ $(function(){
 	$(".kv-file-remove").click(function(){
 		// console.log();
 	});
-	// $('#election_id').hide();	
-	// var alias_id = $('#alias_id').val();	
+	// $('#election_id').hide();
+	// var alias_id = $('#alias_id').val();
 
 	// $("#alias_id").change(function(){
 	// 	alias_id = $('#alias_id').val();
@@ -52,7 +52,7 @@ $(function(){
 <div class="form-group">
 	{!!Form::label('dateinicio','Publicar en:')!!}
     {!!Form::input('datetime', 'dateinicio', date('Y-m-d h:i:s'), ['class' => 'Form-Control', 'required'=>'required']) !!}
-    
+
 </div>
 
 <div class="form-group">
@@ -63,8 +63,7 @@ $(function(){
 <div class="form-group">
 {!!Form::label('Tipo De respuesta:')!!}
 <select name="TipoRespuesta" id="select-change" required>
-<option selected>
-	<option></option>
+<option selected></option>
 <option value="0" >Si o no
 <option value="image"> Imagen
 </select>
@@ -81,7 +80,7 @@ $(function(){
 
 
 <script>
- 
+
     $('#file-es').fileinput({
         language: 'es',
         uploadUrl: '/image-uploads',
@@ -109,7 +108,7 @@ $(function(){
             return filename.replace('(', '_').replace(']', '_');
         }
 	});
-  
+
 	$("#file-3").fileinput({
 		showUpload: false,
 		showCaption: false,
@@ -126,7 +125,7 @@ $(function(){
         } else {
             $('#file-4').fileinput('disable');
         }
-    });    
+    });
     $(".btn-info").on('click', function() {
         $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
     });
